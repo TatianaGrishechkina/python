@@ -9,6 +9,6 @@ while number > 10:
     elif 10 > first_num > max_num:
         max_num = first_num
     number = number // 10
-#    print(max_num, first_num, second_num, number)
+    print(max_num, first_num, second_num, number)
 
 print(f'Наибольшая цифра - {max_num}')
