@@ -3,3 +3,10 @@
 # Функция должна принимать параметры как именованные аргументы.
 # Реализовать вывод данных о пользователе одной строкой.
 
+def user_data(name, lastname, year, city, email, phone):
+    print(f'Имя пользователя: {name}, фамилия: {lastname}, год рождения: {year}, город проживания: {city}, '
+          f'e-mail: {email}, телефон: {phone}.')
+
+
+user_data(name=input('Имя: '), lastname=input('Фамилия: '), year=input('Год рождения: '), city=input('Город: '),
+          email=input('e-mail: '), phone=input('Телефон: '))

@@ -6,3 +6,32 @@
 # Первый — возведение в степень с помощью оператора **.
 # Второй — более сложная реализация без оператора **, предусматривающая использование цикла.
 
+# Первый способ:
+def my_func_1(x, y):
+    return x ** y
+
+
+# Второй способ:
+def my_func_2(x, y):
+    i = 1
+    if y > 0:
+        result = x
+        while i < y:
+            result = result * x
+            i += 1
+        return result
+    elif y == 0:
+        return 1
+    else:
+        result = 1 / x
+        while i < abs(y):
+            result = result / x
+            i += 1
+        return result
+
+
+x = int(input('Введите число: '))
+y = int(input('Введите значение степени: '))
+
+print(f'Первый способ: {my_func_1(x, y)}')
+print(f'Второй способ: {my_func_2(x, y)}')
