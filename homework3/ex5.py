@@ -6,10 +6,25 @@
 # Если специальный символ введен после нескольких чисел,
 # то вначале нужно добавить сумму этих чисел к полученной ранее сумме и после этого завершить программу.
 
-def sum_numbers(*numb):
+def sum_numbers(numb):
     return sum(numb)
 
-numbers = input('Введите строку чисел, разделенных пробелами: ').split(' ')
 
-print(numbers)
-print(sum_numbers(numbers))
+total = 0
+exit_flag = False
+while not exit_flag:
+    numbers = input('Введите строку чисел, разделенных пробелами: ').split(' ')
+    my_list = []
+    for num in numbers:
+        try:
+            my_list += [int(num)]
+        except ValueError:
+            exit_flag = True
+            break
+    current = sum_numbers(my_list)
+    print(f'Сумма введенных чисел = {current}')
+    total += current
+print(f'Общая сумма: {total}')
+
+
+

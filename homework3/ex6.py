@@ -12,5 +12,10 @@ def int_func(text):
 
 
 x = input('Введите строку из маленьких латинских букв, разделенных пробелами:  ').split(' ')
+my_list = []
+for el in x:
+    my_list += [int_func(el)]
+print(' '.join(my_list))
+
 
 
