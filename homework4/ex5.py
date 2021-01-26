@@ -10,4 +10,4 @@ def multiply_func(num_1, num_2):
 
 
 print(f'Мой список четных чисел от 100 до 1000: {[el for el in range(100, 1001) if el % 2 == 0]}')
-print(f'Мой список произведения {reduce(multiply_func, [el for el in range(100, 1001) if el % 2 == 0])}')
+print(f'Произведение этих чисел {reduce(multiply_func, [el for el in range(100, 1001) if el % 2 == 0])}')
