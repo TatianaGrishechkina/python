@@ -6,15 +6,15 @@
 # Например: 20м*5000м*25кг*5см = 12500 т
 
 class Road:
-    length = float
-    width = float
+    _length = 0.0
+    _width = 0.0
 
     def __init__(self, length_in_meters, width_in_meters):
-        self.width = width_in_meters
-        self.length = length_in_meters
+        self._width = width_in_meters
+        self._length = length_in_meters
 
     def calculate(self, asphalt_mass=25, height=5):
-        return self.length * self.width * asphalt_mass * height
+        return self._length * self._width * asphalt_mass * height / 1000
 
 
 road = Road(length_in_meters=20, width_in_meters=5000)

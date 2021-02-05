@@ -9,10 +9,10 @@
 # передать данные, проверить значения атрибутов, вызвать методы экземпляров).
 
 class Worker:
-    name = str
-    surname = str
-    position = str
-    income = {"wage": "wage", "bonus": "bonus"}
+    name = ''
+    surname = ''
+    position = ''
+    _income = {"wage": 0.0, "bonus": 0.0}
 
 
 class Position(Worker):
@@ -20,14 +20,14 @@ class Position(Worker):
         self.name = name
         self.surname = surname
         self.position = position
-        self.income["wage"] = wage
-        self.income["bonus"] = bonus
+        self._income["wage"] = wage
+        self._income["bonus"] = bonus
 
     def get_full_name(self):
         return self.name + ' ' + self.surname
 
     def get_total_income(self):
-        return sum(self.income.values())
+        return sum(self._income.values())
 
 
 worker_1 = Position('Александр', 'Пушкин', 'поэт', 10000.99, 5789.99)
