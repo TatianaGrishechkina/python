@@ -19,15 +19,15 @@ class Car:
         return print('Машина остановилась!')
 
     def turn(self, direction):
-        return print(f'Машина повернула в направлении {direction}')
+        return print(f'Машина повернула {direction}')
 
     def show_speed(self):
         return self.speed
 
 class TownCar(Car):
     speed = 70
-    color = 'blue'
-    name = 'bus'
+    color = 'синий'
+    name = 'автобус'
     is_police = False
 
     def show_speed(self):
@@ -36,14 +36,14 @@ class TownCar(Car):
 
 class SportCar(Car):
     speed = 30
-    color = 'red'
-    name = 'bike'
+    color = 'красный'
+    name = 'феррари'
     is_police = False
 
 class WorkCar(Car):
     speed = 50
-    color = 'yellow'
-    name = 'taxi'
+    color = 'желтый'
+    name = 'такси'
     is_police = False
 
     def show_speed(self):
@@ -52,8 +52,8 @@ class WorkCar(Car):
 
 class PoliceCar(Car):
     speed = 100
-    color = 'black'
-    name = 'police'
+    color = 'черный'
+    name = 'полиция'
     is_police = True
 
 
@@ -62,4 +62,19 @@ merida = SportCar()
 uber = WorkCar()
 omon = PoliceCar()
 
+print(f'Наш городской транспорт - это {bus46.name}. '
+      f'Преобладающий цвет раскраски: {bus46.color}.'
+      f'Несется со скоростью {bus46.show_speed()}, а теперь и вовсе {bus46.stop()}')
 
+print(f'Наш спорт транспорт - это {merida.name}. '
+      f'Преобладающий цвет раскраски: {merida.color}.'
+      f'Несется со скоростью {merida.speed}')
+
+print(f'Наш транспорт для поездок в офис - это {uber.name}. '
+      f'Преобладающий цвет раскраски: {uber.color}.'
+      f'Несется со скоростью {uber.show_speed()}')
+
+print(f'А вот это - {omon.name}. '
+      f'Преобладающий цвет раскраски: {omon.color}.'
+      f'Несется со скоростью {omon.speed}.'
+      f'Машина {uber.turn(direction="налево")}')
