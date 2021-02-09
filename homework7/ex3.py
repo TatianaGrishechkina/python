@@ -26,3 +26,48 @@
 # Тогда метод make_order() вернет строку: *****\n*****\n*****.
 # Подсказка: подробный список операторов для перегрузки доступен по ссылке.
 
+class Cell:
+    def __init__(self, nucleus):
+        self.nucleus = int(nucleus)
+
+    def __str__(self):
+        return str(self.nucleus * "*")
+
+    def __add__(self, other):
+        return Cell(self.nucleus + other.nucleus)
+
+    def __sub__(self, other):
+        if self.nucleus - other.nucleus > 0:
+            return Cell(self.nucleus - other.nucleus)
+        else:
+            raise ValueError
+
+    def __mul__(self, other):
+        return Cell(int(self.nucleus * other.nucleus))
+
+    def __truediv__(self, other):
+        return Cell(round(self.nucleus // other.nucleus))
+
+    def make_order(self, cells_in_row):
+        row = ''
+        for i in range(int(self.nucleus / cells_in_row)):
+            row += f'{"*" * cells_in_row} \n'
+        row += f'{"*" * (self.nucleus % cells_in_row)}'
+        return row
+
+
+# Объявляем ячейки
+cells1 = Cell(12)
+cells2 = Cell(3)
+print(f'Как выглядит одна наша клетка: \n{cells1}')
+print(f'Сложение двух клеток: \n{cells1 + cells2}')
+print(f'Вычитание двух клеток: \n{cells1 - cells2}')
+print(f'Умножение двух клеток: \n{cells1 * cells2}')
+print(f'Деление двух клеток: \n{cells1 / cells2}')
+try:
+    print(cells2 - cells1)
+except ValueError:
+    print('Разность количества ячеек двух клеток меньше нуля!')
+
+print(f'Пытаемся клетку разбить на ряды, где ряд больше количества ячеек: \n{cells2.make_order(12)}')
+print(f'Пытаемся клетку разбить на ряды, где ряд больше количества ячеек: \n{cells1.make_order(3)}')

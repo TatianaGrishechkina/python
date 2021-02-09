@@ -12,3 +12,41 @@
 # первый элемент первой строки первой матрицы складываем с первым элементом первой строки
 # второй матрицы и т.д.
 
+class Matrix:
+    def __init__(self, my_list):
+        self.my_list = my_list
+
+    def __str__(self):
+        return str('\n'.join(['\t'.join([str(k) for k in i]) for i in self.my_list]))
+
+    def __add__(self, other):
+        res_list = []
+        l1 = self.my_list
+        l2 = other.my_list
+        for r1, r2 in zip(l1, l2):
+            row = []
+            for j1, j2 in zip(r1, r2):
+                row.append(j1+j2)
+            res_list.append(row)
+        return Matrix(res_list)
+
+
+list1 = [
+            [1, 5, 0],
+            [0, 7, 0],
+            [0, 0, 0],
+        ]
+
+list2 = [
+            [1, 0, 0],
+            [0, -3, 0],
+            [0, 0, 6],
+        ]
+
+matrix1 = Matrix(list1)
+matrix2 = Matrix(list2)
+
+print(f'Наша первая матрица: \n{matrix1}')
+print(f'Наша вторая матрица: \n{matrix2}')
+
+print(f'Сумма матриц: \n{matrix1 + matrix2}')
